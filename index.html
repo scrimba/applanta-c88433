@@ -1,0 +1,474 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Applanta Solutions — Enterprise Digital Services</title><style>*, ::before, ::after { box-sizing: border-box; margin: 0px; padding: 0px; }
+:root { --blue: #1D4ED8; --purple: #7C3AED; --bg: #0A0F1E; --card: #0F172A; --border: #1E3A5F; --text: #E2E8F0; --muted: #64748B; --green: #22C55E; --amber: #F59E0B; --grad: linear-gradient(135deg, #1D4ED8, #7C3AED); --grad-h: linear-gradient(135deg, #2563EB, #8B5CF6); --radius: 16px; }
+html { scroll-behavior: smooth; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; overflow-x: hidden; }
+nav { position: sticky; top: 0px; z-index: 100; background: rgba(10, 15, 30, 0.92); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); padding: 0px 20px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { display: flex; flex-direction: column; line-height: 1.1; text-decoration: none; }
+.nav-logo-main { font-size: 1.15rem; font-weight: 900; letter-spacing: -0.5px; background-image: ; background-position-x: ; background-position-y: ; background-size: ; background-repeat: ; background-attachment: ; background-origin: ; background-color: ; -webkit-text-fill-color: transparent; background-clip: text; }
+.nav-logo-sub { font-size: 0.55rem; font-weight: 600; letter-spacing: 3.5px; text-transform: uppercase; color: rgb(124, 155, 192); margin-top: 1px; }
+.nav-links { display: flex; align-items: center; gap: 6px; }
+.nav-link { font-size: 0.78rem; font-weight: 600; color: rgb(148, 163, 184); text-decoration: none; padding: 6px 10px; border-radius: 6px; transition: color 0.18s, background 0.18s; white-space: nowrap; }
+.nav-link:hover { color: rgb(226, 232, 240); background: rgba(255, 255, 255, 0.05); }
+.nav-cta { background: var(--grad); color: rgb(255, 255, 255); border-width: medium; border-style: none; border-color: currentcolor; border-image: none; border-radius: 8px; padding: 8px 16px; font-size: 0.78rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: opacity 0.2s, transform 0.15s; white-space: nowrap; }
+.nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+.hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; cursor: pointer; padding: 6px; margin-left: 8px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: rgb(226, 232, 240); border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
+@media (max-width: 680px){.nav-links { display: none; }
+.hamburger { display: flex; }
+}
+.hero { position: relative; overflow: hidden; padding: 72px 20px 64px; text-align: center; background: linear-gradient(160deg, rgb(13, 25, 51) 0%, rgb(10, 15, 30) 60%, rgb(17, 11, 34) 100%); }
+.hero::before { content: ""; position: absolute; inset: 0px; background-image: linear-gradient(rgba(29, 78, 216, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(29, 78, 216, 0.08) 1px, transparent 1px); background-size: 40px 40px; animation: 20s linear 0s infinite normal none running grid-drift; pointer-events: none; }
+@keyframes grid-drift { 
+  0% { transform: translate(0px, 0px); }
+  100% { transform: translate(40px, 40px); }
+}
+.hero::after { content: ""; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 500px; height: 500px; background: radial-gradient(rgba(124, 58, 237, 0.18) 0%, transparent 70%); pointer-events: none; }
+.hero-content { position: relative; z-index: 1; max-width: 600px; margin: 0px auto; }
+.hero-badge { display: inline-block; background: rgba(29, 78, 216, 0.18); border: 1px solid rgba(29, 78, 216, 0.4); color: rgb(147, 197, 253); font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 20px; }
+.hero h1 { font-size: clamp(1.9rem, 6vw, 2.8rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 16px; }
+.hero h1 span { background-image: ; background-position-x: ; background-position-y: ; background-size: ; background-repeat: ; background-attachment: ; background-origin: ; background-color: ; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-sub { color: var(--muted); font-size: 0.92rem; letter-spacing: 0.5px; margin-bottom: 32px; }
+.hero-sub strong { color: rgb(148, 163, 184); }
+.hero-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.hero-chip { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 100px; padding: 6px 14px; font-size: 0.78rem; color: rgb(148, 163, 184); }
+.section-label { text-align: center; padding: 48px 20px 8px; }
+.section-label h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; }
+.section-label p { color: var(--muted); font-size: 0.88rem; max-width: 380px; margin: 0px auto; }
+.services-grid { display: grid; grid-template-columns: 1fr; gap: 20px; padding: 24px 16px 40px; max-width: 960px; margin: 0px auto; }
+@media (min-width: 640px){.services-grid { grid-template-columns: 1fr 1fr; }
+}
+.service-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; position: relative; display: flex; flex-direction: column; transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s; }
+.service-card:hover { transform: translateY(-4px); border-color: rgba(29, 78, 216, 0.5); box-shadow: rgba(29, 78, 216, 0.15) 0px 16px 48px; }
+.service-card:hover .card-accent { opacity: 1; }
+.card-accent { height: 3px; background: var(--grad); opacity: 0.7; transition: opacity 0.22s; }
+.service-card.featured .card-accent { opacity: 1; }
+.card-body { padding: 24px 22px; flex: 1 1 0%; display: flex; flex-direction: column; }
+.badge-popular { position: absolute; top: 14px; right: 14px; background: linear-gradient(135deg, rgb(217, 119, 6), rgb(245, 158, 11)); color: rgb(255, 255, 255); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; }
+.card-icon-wrap { width: 52px; height: 52px; border-radius: 14px; background: var(--grad); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 16px; flex-shrink: 0; }
+.card-name { font-size: 1.05rem; font-weight: 700; color: rgb(255, 255, 255); margin-bottom: 3px; padding-right: 60px; }
+.card-tagline { font-size: 0.78rem; color: rgb(124, 58, 237); font-weight: 600; letter-spacing: 0.3px; margin-bottom: 12px; }
+.card-desc { font-size: 0.85rem; color: rgb(148, 163, 184); line-height: 1.65; margin-bottom: 18px; }
+.card-features { list-style: none; margin-bottom: 24px; flex: 1 1 0%; }
+.card-features li { font-size: 0.82rem; color: rgb(203, 213, 225); padding: 5px 0px; display: flex; align-items: baseline; gap: 8px; }
+.card-features li::before { content: "✓"; color: var(--green); font-weight: 700; font-size: 0.75rem; flex-shrink: 0; }
+.card-cta { display: block; width: 100%; text-align: center; border-radius: 10px; padding: 12px 20px; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: none; font-family: inherit; transition: opacity 0.18s, transform 0.15s, box-shadow 0.18s; }
+.card-cta:hover { opacity: 0.88; transform: translateY(-1px); box-shadow: rgba(29, 78, 216, 0.3) 0px 6px 20px; }
+.card-cta.primary { background: var(--grad); color: rgb(255, 255, 255); border-width: medium; border-style: none; border-color: currentcolor; border-image: none; }
+.card-cta.outlined { background: transparent; color: rgb(147, 197, 253); border: 1px solid rgba(29, 78, 216, 0.55); }
+.card-cta.outlined:hover { background: rgba(29, 78, 216, 0.12); box-shadow: rgba(29, 78, 216, 0.2) 0px 4px 16px; }
+.service-card.featured { border-color: rgba(29, 78, 216, 0.45); box-shadow: rgba(29, 78, 216, 0.15) 0px 0px 0px 1px; }
+.stats-bar { background: rgb(8, 13, 26); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 32px 20px; margin: 8px 0px; }
+.stats-inner { display: flex; flex-wrap: wrap; justify-content: center; gap: 0px; max-width: 800px; margin: 0px auto; }
+.stat-item { flex: 1 1 140px; text-align: center; padding: 12px 20px; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right-width: medium; border-right-style: none; border-right-color: currentcolor; }
+.stat-num { font-size: 1.55rem; font-weight: 800; background-image: ; background-position-x: ; background-position-y: ; background-size: ; background-repeat: ; background-attachment: ; background-origin: ; background-color: ; -webkit-text-fill-color: transparent; background-clip: text; display: block; line-height: 1.2; margin-bottom: 4px; }
+.stat-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 600; }
+@media (max-width: 460px){.stats-inner { flex-direction: column; }
+.stat-item { border-right-width: medium; border-right-style: none; border-right-color: currentcolor; border-bottom: 1px solid var(--border); }
+.stat-item:last-child { border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor; }
+}
+.pricing-section { padding: 60px 20px; max-width: 960px; margin: 0px auto; }
+.pricing-eyebrow { text-align: center; font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgb(124, 58, 237); margin-bottom: 10px; }
+.pricing-title { text-align: center; font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 800; color: rgb(255, 255, 255); margin-bottom: 8px; }
+.pricing-sub { text-align: center; font-size: 0.88rem; color: var(--muted); margin-bottom: 40px; }
+.pricing-group { margin-bottom: 48px; }
+.pricing-group-label { display: flex; align-items: center; gap: 12px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+.pricing-group-label::after { content: ""; flex: 1 1 0%; height: 1px; background: var(--border); }
+.pricing-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.p-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px 20px; position: relative; transition: border-color 0.2s; }
+.p-card:hover { border-color: rgba(29, 78, 216, 0.5); }
+.p-card.featured-price { border-color: rgba(29, 78, 216, 0.45); box-shadow: rgba(29, 78, 216, 0.15) 0px 0px 0px 1px; }
+.p-tier { font-size: 0.65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.p-name { font-size: 1rem; font-weight: 700; color: rgb(255, 255, 255); margin-bottom: 12px; }
+.p-price-block { margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.p-price { font-size: 1.8rem; font-weight: 900; color: rgb(255, 255, 255); letter-spacing: -1px; }
+.p-price-note { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+.p-features-mini { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.p-features-mini li { font-size: 0.78rem; color: rgb(148, 163, 184); display: flex; align-items: baseline; gap: 7px; }
+.p-features-mini li::before { content: "✓"; color: var(--green); font-weight: 700; font-size: 0.7rem; flex-shrink: 0; }
+.p-contact { text-align: center; padding: 28px 20px; }
+.p-contact-text { font-size: 0.88rem; color: var(--muted); margin-bottom: 14px; }
+.p-contact a { display: inline-block; padding: 10px 24px; border-radius: 8px; border: 1px solid rgba(29, 78, 216, 0.45); color: rgb(147, 197, 253); font-size: 0.82rem; font-weight: 700; text-decoration: none; transition: 0.18s; }
+.p-contact a:hover { background: rgba(29, 78, 216, 0.12); }
+@media (max-width: 480px){.pricing-cards { grid-template-columns: 1fr; }
+}
+.cta-section { padding: 64px 20px; text-align: center; position: relative; overflow: hidden; }
+.cta-section::before { content: ""; position: absolute; bottom: -100px; left: 50%; transform: translateX(-50%); width: 600px; height: 300px; background: radial-gradient(rgba(29, 78, 216, 0.12) 0%, transparent 70%); pointer-events: none; }
+.cta-content { position: relative; z-index: 1; max-width: 500px; margin: 0px auto; }
+.cta-section h2 { font-size: clamp(1.5rem, 5vw, 2rem); font-weight: 800; margin-bottom: 14px; }
+.cta-section h2 span { background-image: ; background-position-x: ; background-position-y: ; background-size: ; background-repeat: ; background-attachment: ; background-origin: ; background-color: ; -webkit-text-fill-color: transparent; background-clip: text; }
+.cta-section p { color: rgb(148, 163, 184); font-size: 0.9rem; line-height: 1.7; margin-bottom: 32px; }
+.cta-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.btn-primary { background: var(--grad); color: rgb(255, 255, 255); border-width: medium; border-style: none; border-color: currentcolor; border-image: none; border-radius: 10px; padding: 14px 28px; font-size: 0.9rem; font-weight: 700; cursor: pointer; text-decoration: none; font-family: inherit; transition: opacity 0.18s, transform 0.15s, box-shadow 0.18s; }
+.btn-primary:hover { opacity: 0.88; transform: translateY(-2px); box-shadow: rgba(29, 78, 216, 0.35) 0px 8px 24px; }
+.btn-outlined { background: transparent; color: rgb(147, 197, 253); border: 1px solid rgba(29, 78, 216, 0.55); border-radius: 10px; padding: 14px 28px; font-size: 0.9rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: background 0.18s, transform 0.15s; }
+.btn-outlined:hover { background: rgba(29, 78, 216, 0.12); transform: translateY(-2px); }
+footer { background: rgb(8, 13, 26); border-top: 1px solid var(--border); padding: 28px 20px; text-align: center; }
+.footer-logo { font-size: 1.1rem; font-weight: 800; background-image: ; background-position-x: ; background-position-y: ; background-size: ; background-repeat: ; background-attachment: ; background-origin: ; background-color: ; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; }
+.footer-email { font-size: 0.82rem; color: var(--muted); margin-bottom: 10px; }
+.footer-email a { color: rgb(147, 197, 253); text-decoration: none; }
+.footer-email a:hover { text-decoration: underline; }
+.footer-copy { font-size: 0.72rem; color: rgb(55, 65, 81); }
+.divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 0px 20px; }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.5s, transform 0.5s; }
+.reveal.visible { opacity: 1; transform: translateY(0px); }
+.reveal-d1 { transition-delay: 0.08s; }
+.reveal-d2 { transition-delay: 0.16s; }
+.reveal-d3 { transition-delay: 0.24s; }
+.reveal-d4 { transition-delay: 0.32s; }
+@keyframes modalIn { 
+  0% { opacity: 0; transform: translateY(18px) scale(0.97); }
+  100% { opacity: 1; transform: translateY(0px) scale(1); }
+}
+.xd-video{margin:28px 0 36px;padding:22px;border-radius:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.14);font-family:-apple-system, system-ui, 'Segoe UI', Roboto, sans-serif;box-sizing:border-box;clear:both;text-align:left;width:100%}
+.xd-label{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:12px;line-height:1;color:#ffffff;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.xd-dot{width:8px;height:8px;border-radius:50%;background:#7c3aed;display:inline-block}
+.xd-title{font-weight:700;font-size:22px;line-height:1.3;color:#ffffff;margin:0 0 6px;padding:0}
+.xd-sub{font-size:16px;line-height:1.5;color:#555;margin:0 0 16px;padding:0}
+.xd-frame{position:relative;width:100%;aspect-ratio:16/10;border-radius:12px;overflow:hidden;background:#111;box-shadow:0 6px 20px rgba(0,0,0,.10)}
+.xd-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+@media (max-width:600px){.xd-video{padding:14px}.xd-title{font-size:18px}}
+.xd-wrap{max-width:820px;margin:0 auto;padding:8px 24px 0;box-sizing:border-box}.xd-sub{color:#a9b4cc!important}.xd-label{color:#c4b5fd!important}.reveal{opacity:1!important;transform:none!important}.nav-logo-main{background-image:linear-gradient(135deg,#1d4ed8,#7c3aed);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.hero h1 span{background-image:linear-gradient(135deg,#1d4ed8,#7c3aed);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.stat-num{background-image:linear-gradient(135deg,#1d4ed8,#7c3aed);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.cta-section h2 span{background-image:linear-gradient(135deg,#1d4ed8,#7c3aed);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.footer-logo{background-image:linear-gradient(135deg,#1d4ed8,#7c3aed);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}</style></head><body class=""><nav>
+    <a href="https://applanta.app/" class="nav-logo">
+      <span class="nav-logo-main">APPLANTA</span>
+      <span class="nav-logo-sub">Solutions</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="https://applanta.app/services.html#service-apps" class="nav-link">📱 Custom Apps</a>
+      <a href="https://applanta.app/services.html#service-applantis" class="nav-link">🤖 Applantis</a>
+      <a href="https://applanta.app/services.html#service-alpha" class="nav-link">⚡ ALPHA</a>
+      <a href="https://applanta.app/services.html#service-app" class="nav-link">🛡️ APP</a>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:0">
+      <button class="nav-cta" onclick="openIntake('Not Sure Yet — Let\'s Talk')">Get Started →</button>
+      <button class="hamburger" id="hamburger-btn" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav><section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Digital Services for Real Businesses</div>
+      <h1>Enterprise-Grade Digital&nbsp;Services <span>For Your Business</span></h1>
+      <p class="hero-sub">
+        <strong>Custom apps · AI automation · DIY tools · Business AI governance</strong>
+      </p>
+      <div class="hero-chips">
+        <a href="https://applanta.app/services.html#service-apps" class="hero-chip" style="text-decoration:none;cursor:pointer">📱 Custom Apps</a>
+        <a href="https://applanta.app/services.html#service-applantis" class="hero-chip" style="text-decoration:none;cursor:pointer">🤖 Applantis AI</a>
+        <a href="https://applanta.app/services.html#service-alpha" class="hero-chip" style="text-decoration:none;cursor:pointer">⚡ ALPHA Builder</a>
+        <a href="https://applanta.app/services.html#service-app" class="hero-chip" style="text-decoration:none;cursor:pointer">🛡️ Proxy Protocol</a>
+      </div>
+    </div>
+  </section><div class="xd-wrap"><div class="xd-video"><div class="xd-label"><span class="xd-dot"></span>Video &middot; 2 min</div><div class="xd-title">Install a business app from a link, no App Store</div><p class="xd-sub">How your customers put your app on their home screen in one tap, and what goes inside it.</p><div class="xd-frame"><iframe src="https://scrimba.com/explain/guide0gq3vtgr1" scrolling="no" allow="fullscreen" allowfullscreen title="Video: Install a business app from a link, no App Store"></iframe></div></div></div><div class="section-label">
+    <h2>What We Build For You</h2>
+    <p>Four distinct services, one mission — give your business the digital edge it deserves.</p>
+  </div><div class="services-grid" id="pricing">
+
+    <!-- Card 1 — Custom App Dev (FEATURED) -->
+    <div id="service-apps" class="service-card featured reveal reveal-d1 visible">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <span class="badge-popular">Most Popular</span>
+        <div class="card-icon-wrap">📱</div>
+        <div class="card-name">Custom App Development</div>
+        <div class="card-tagline">Put Your Business In Their Pocket</div>
+        <p class="card-desc">
+          We build fully custom progressive web apps for your business — no App Store required.
+          Your customers tap once and it installs like a native app on any phone. Built around
+          your brand, your menu, your bookings, your rules.
+        </p>
+        <ul class="card-features">
+          <li>Menu, ordering &amp; booking systems</li>
+          <li>Loyalty programs &amp; push notifications</li>
+          <li>Stripe payments built-in</li>
+          <li>Delivered in 1–7 days</li>
+        </ul>
+        <button class="card-cta primary" onclick="openIntake('Custom App Build')">
+          Start Your App →
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 2 — Applantis AI Calling -->
+    <div id="service-applantis" class="service-card reveal reveal-d2 visible">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <div class="card-icon-wrap">🤖</div>
+        <div class="card-name">Applantis — AI Voice Calling</div>
+        <div class="card-tagline">Your 24/7 AI Sales Rep</div>
+        <p class="card-desc">
+          Applantis makes outbound calls to your leads automatically — day or night. Real
+          conversations, real qualification, booked appointments delivered directly to your
+          calendar. You close. Applantis does the dialing.
+        </p>
+        <ul class="card-features">
+          <li>Natural voice AI conversations</li>
+          <li>Lead qualification &amp; scoring</li>
+          <li>Call recordings &amp; full transcripts</li>
+          <li>CRM &amp; calendar integration</li>
+        </ul>
+        <button class="card-cta outlined" onclick="openIntake('Applantis AI Calling')">
+          Learn More →
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 3 — ALPHA DIY App Builder -->
+    <div id="service-alpha" class="service-card reveal reveal-d3">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <div class="card-icon-wrap">⚡</div>
+        <div class="card-name">ALPHA — DIY App Builder</div>
+        <div class="card-tagline">Build Your App With a Conversation</div>
+        <p class="card-desc">
+          Don't want to wait? ALPHA lets you describe your app in plain English and watch it
+          build in real time. Edit any section just by talking to it — no designers, no
+          developers, no waiting.
+        </p>
+        <ul class="card-features">
+          <li>No code, no designers needed</li>
+          <li>Talk-to-Edit interface</li>
+          <li>Launch in minutes, not weeks</li>
+        </ul>
+        <button class="card-cta outlined" onclick="openIntake('ALPHA DIY App Builder')">
+          Try ALPHA →
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 4 — Applanta Proxy Protocol -->
+    <div id="service-app" class="service-card reveal reveal-d4">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <div class="card-icon-wrap">🛡️</div>
+        <div class="card-name">Applanta Proxy Protocol</div>
+        <div class="card-tagline">AI That Follows Your Business Rules</div>
+        <p class="card-desc">
+          Deploy a sovereign AI layer between your team and your AI tools. Every AI decision
+          is vetted against your custom business rules — price floors, approved actions,
+          discount limits — so your brand never goes off-script.
+        </p>
+        <ul class="card-features">
+          <li>Custom sovereign identity rules</li>
+          <li>Shield compliance engine</li>
+          <li>Full audit trail &amp; history</li>
+          <li>White-label ready for your brand</li>
+        </ul>
+        <button class="card-cta outlined" onclick="openIntake('Applanta Proxy Protocol')">
+          Explore APP →
+        </button>
+      </div>
+    </div>
+
+  </div><div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item reveal">
+        <span class="stat-num">20+</span>
+        <span class="stat-label">Industries Served</span>
+      </div>
+      <div class="stat-item reveal reveal-d1">
+        <span class="stat-num">48hr</span>
+        <span class="stat-label">Average Delivery</span>
+      </div>
+      <div class="stat-item reveal reveal-d2">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">White-Label Ready</span>
+      </div>
+      <div class="stat-item reveal reveal-d3">
+        <span class="stat-num">$0</span>
+        <span class="stat-label">App Store Fees</span>
+      </div>
+    </div>
+  </div><div class="divider"></div><div class="pricing-section reveal" id="pricing-detail">
+    <div class="pricing-eyebrow">Transparent Pricing</div>
+    <h2 class="pricing-title">Simple, Flat-Rate Pricing</h2>
+    <p class="pricing-sub">No hidden fees. No surprise charges. You own what you pay for.</p>
+
+    <!-- Custom App Development -->
+    <div class="pricing-group">
+      <div class="pricing-group-label">📱 Custom App Development — Own-It Plans</div>
+      <div class="pricing-cards">
+        <div class="p-card reveal">
+          <div class="p-tier">Basic</div>
+          <div class="p-name">Starter App</div>
+          <div class="p-price-block">
+            <div class="p-price">$300</div>
+            <div class="p-price-note">One-time · +$15/mo hosting</div>
+          </div>
+          <ul class="p-features-mini">
+            <li>Single-purpose app (menu, schedule, or info)</li>
+            <li>Mobile-ready &amp; branded</li>
+            <li>Delivered in 1–3 days</li>
+            <li>$50/update after delivery</li>
+          </ul>
+        </div>
+        <div class="p-card featured-price reveal reveal-d1">
+          <div class="badge-popular">Most Popular</div>
+          <div class="p-tier">Standard</div>
+          <div class="p-name">Full-Feature App</div>
+          <div class="p-price-block">
+            <div class="p-price">$500</div>
+            <div class="p-price-note">One-time · +$15/mo hosting</div>
+          </div>
+          <ul class="p-features-mini">
+            <li>Multiple features &amp; full branding</li>
+            <li>Booking, ordering, or scheduling</li>
+            <li>QR code + customer-ready</li>
+            <li>Delivered in 3–5 days</li>
+          </ul>
+        </div>
+        <div class="p-card reveal reveal-d2">
+          <div class="p-tier">Advanced</div>
+          <div class="p-name">Pro App</div>
+          <div class="p-price-block">
+            <div class="p-price">$800</div>
+            <div class="p-price-note">One-time · +$15/mo hosting</div>
+          </div>
+          <ul class="p-features-mini">
+            <li>Logins &amp; admin dashboard</li>
+            <li>Push notifications &amp; payments</li>
+            <li>Loyalty program included</li>
+            <li>Delivered in 5–7 days</li>
+          </ul>
+        </div>
+        <div class="p-card reveal reveal-d3">
+          <div class="p-tier">Premium</div>
+          <div class="p-name">Custom Build</div>
+          <div class="p-price-block">
+            <div class="p-price">$1,200+</div>
+            <div class="p-price-note">One-time · +$15/mo hosting</div>
+          </div>
+          <ul class="p-features-mini">
+            <li>5+ pro features, full custom scope</li>
+            <li>Firebase backend &amp; analytics</li>
+            <li>7–14 day delivery</li>
+            <li>Quote provided after brief</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Monthly Plans -->
+    <div class="pricing-group">
+      <div class="pricing-group-label">📱 Custom App Development — Monthly Plans</div>
+      <div class="pricing-cards">
+        <div class="p-card reveal">
+          <div class="p-tier">Starter Monthly</div>
+          <div class="p-name">Starter Plan</div>
+          <div class="p-price-block">
+            <div class="p-price">$99 <span style="font-size:1rem;font-weight:600">+ $39/mo</span></div>
+            <div class="p-price-note">Setup fee · then monthly</div>
+          </div>
+          <ul class="p-features-mini">
+            <li>Hosting &amp; maintenance included</li>
+            <li>1 update per month</li>
+            <li>Email support (48hr response)</li>
+            <li>Cancel anytime, no penalty</li>
+          </ul>
+        </div>
+        <div class="p-card featured-price reveal reveal-d1">
+          <div class="p-tier">Pro Monthly</div>
+          <div class="p-name">Pro Plan</div>
+          <div class="p-price-block">
+            <div class="p-price">$149 <span style="font-size:1rem;font-weight:600">+ $69/mo</span></div>
+            <div class="p-price-note">Setup fee · then monthly</div>
+          </div>
+          <ul class="p-features-mini">
+            <li>Advanced app + unlimited small updates</li>
+            <li>Priority same-day support</li>
+            <li>Push notifications + monthly report</li>
+            <li>Cancel anytime, no penalty</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- APP Pricing -->
+    <div class="pricing-group">
+      <div class="pricing-group-label">🛡️ Applanta Proxy Protocol (APP) — AI Governance</div>
+      <div class="pricing-cards">
+        <div class="p-card reveal">
+          <div class="p-tier">APP Starter</div>
+          <div class="p-name">Starter</div>
+          <div class="p-price-block">
+            <div class="p-price">$349 <span style="font-size:1rem;font-weight:600">+ $49/mo</span></div>
+            <div class="p-price-note">Setup · then monthly</div>
+          </div>
+          <ul class="p-features-mini">
+            <li>Custom sovereign identity rules</li>
+            <li>Shield compliance engine</li>
+            <li>Full audit trail &amp; history</li>
+            <li>Owner dashboard included</li>
+          </ul>
+        </div>
+        <div class="p-card featured-price reveal reveal-d1">
+          <div class="badge-popular">Best Value</div>
+          <div class="p-tier">APP Pro</div>
+          <div class="p-name">Pro</div>
+          <div class="p-price-block">
+            <div class="p-price">$599 <span style="font-size:1rem;font-weight:600">+ $99/mo</span></div>
+            <div class="p-price-note">Setup · then monthly</div>
+          </div>
+          <ul class="p-features-mini">
+            <li>Everything in Starter</li>
+            <li>Multi-client mode</li>
+            <li>Webhook intake &amp; API access</li>
+            <li>Client self-service portal</li>
+          </ul>
+        </div>
+        <div class="p-card reveal reveal-d2">
+          <div class="p-tier">APP Enterprise</div>
+          <div class="p-name">Enterprise</div>
+          <div class="p-price-block">
+            <div class="p-price">$999 <span style="font-size:1rem;font-weight:600">+ $199/mo</span></div>
+            <div class="p-price-note">Setup · then monthly</div>
+          </div>
+          <ul class="p-features-mini">
+            <li>Everything in Pro</li>
+            <li>White-label for your brand</li>
+            <li>Dedicated support &amp; SLA</li>
+            <li>Custom rule configuration</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Applantis + ALPHA contact -->
+    <div class="pricing-group">
+      <div class="pricing-group-label">🤖 Applantis AI Calling &nbsp;&amp;&nbsp; ⚡ ALPHA DIY Builder</div>
+      <div class="p-card p-contact reveal">
+        <div class="p-contact-text">Applantis and ALPHA are scoped per engagement — volume, call caps, and features vary by business size. Contact us for a custom quote.</div>
+        <a href="mailto:dev@applanta.app?subject=Applantis%20%2F%20ALPHA%20Pricing%20Inquiry">Get a Custom Quote →</a>
+      </div>
+    </div>
+  </div><div class="divider"></div><section class="cta-section">
+    <div class="cta-content reveal">
+      <h2>Ready to Build <span>Something?</span></h2>
+      <p>
+        Every Applanta service starts with a conversation. Tell us what you need and
+        we'll tell you exactly how to get there — the right service, the right timeline,
+        the right price. No pressure, no fluff.
+      </p>
+      <div class="cta-btns">
+        <button class="btn-primary" onclick="openIntake('Not Sure Yet — Let\'s Talk')">
+          Book a Consultation →
+        </button>
+        <a href="https://applanta.app/services.html#pricing" class="btn-outlined">
+          View Services
+        </a>
+      </div>
+    </div>
+  </section><footer>
+    <div class="footer-logo">APPLANTA <span style="font-size:0.7em;font-weight:500;letter-spacing:3px;opacity:0.7">SOLUTIONS</span></div>
+    <div class="footer-email">
+      <a href="mailto:support@applanta.app">support@applanta.app</a> &nbsp;·&nbsp;
+      <a href="tel:4044823195">404-482-3195</a> &nbsp;·&nbsp;
+      <a href="https://applanta.app/" target="_blank" rel="noopener">applanta.app</a>
+    </div>
+    <div class="footer-copy">
+      © 2026 Applanta Solutions. All rights reserved. &nbsp;·&nbsp;
+      <a href="https://applanta.app/terms.html" style="color:inherit;text-decoration:underline;opacity:0.7">Terms of Service</a>
+    </div>
+  </footer></body></html>
